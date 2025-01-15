@@ -86,5 +86,73 @@ class hpLaptopMaker extends LaptopMaker {
 }
 let newLaptop = new LaptopMaker("HP");
 // protected access modifier is similar to private the basic difference is that in protected access modifier we can access it in own class as well as if any class is extended from it
-class HumanMaker {
+//  Abstract classes and methods
+// never use new keyword while using the abstract classes because basically the abstract classes is 
+class Payment {
+    constructor(amount, account) {
+        this.amount = amount;
+        this.account = account;
+    }
+    isPaymentValid(amount) {
+        return this.amount > 0;
+    }
 }
+class Paytm extends Payment {
+}
+// Functions and callback in ts
+function sayName(name, callback) {
+    // callback("Hey")
+}
+sayName("Shivam", (value) => {
+    // console.log(value);
+});
+// rest operator
+function restParam(...args) {
+}
+restParam(1, 2, 3, 4, 5, 6, 7, 8, 9);
+function double(value) {
+    if (typeof value === "number") {
+        return value * 2;
+    }
+    else {
+        return value + value;
+    }
+}
+const doubleNumber = double(2);
+const doubleString = double("Two");
+// console.log(doubleNumber);
+// console.log(doubleString);
+// Generics functions interfaces and classes
+// for example hume ek function banana hia jo koi bhi value ya type ko accept kar sakta hai toh ab hume pta hai hum isey any se achieve toh kar sakte hain but this will remove all the intellisense when we use value. So in order to solve this problem we use generic function that is when we give the param rather than declaring the type there we can use it in the argument. The industry standard is that it is denoted by <T> 
+function acceptValue(value) {
+}
+acceptValue("Shivam");
+acceptValue(69);
+function asdf(obj) {
+}
+asdf({ name: "Shivam", age: 22, key: "afnjkakf" });
+// generic classes
+class LunchMaker {
+    constructor(value) {
+        this.value = value;
+    }
+}
+let lunchOne = new LunchMaker("Cello");
+let lunchTwo = new LunchMaker(12);
+// type assertion and type casting
+// type assertion is simply to tell the typescript the type of particular thing for example
+let anyy = 12;
+anyy; // type casting and assertion
+// type guards  and typescript utility types
+// So type guards are special functions or expressions that allow you to narrow down the type of a variable at runtime for example in the below function the type can be anything so when we use a. we will only be able to access the methods that are common in both string an number but in order to properly use it we need to narrow it down
+// the basic use of type guard is when we are not sure about the type
+function narrowDown(a) {
+    if (typeof a === "string") {
+        console.log(a.length);
+    }
+    else {
+        console.log(a.toFixed);
+    }
+}
+narrowDown("Shivam");
+narrowDown(12);

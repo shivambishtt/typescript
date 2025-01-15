@@ -59,7 +59,7 @@ interface User {
 function getData(obj: User) {
 
 }
-getData({ name: "Shivam", email: "shivam123@gmail.com", password: "1234", salary: 1000000  })
+getData({ name: "Shivam", email: "shivam123@gmail.com", password: "1234", salary: 1000000 })
 
 
 
@@ -138,7 +138,7 @@ class Abcd {
 
 //  private access modifier will if we try to modify the basically any property it will show the error and if its declared as private when we will extend the class we will not be able to use that method or variable name in the extended class   
 class LaptopMaker {
-    public name: string ="Shivam"
+    public name: string = "Shivam"
     constructor(public BRAND_NAME: string) {
         this.BRAND_NAME = BRAND_NAME;
     }
@@ -148,7 +148,7 @@ class hpLaptopMaker extends LaptopMaker {
         super(BRAND_NAME)
     }
     getValue() {
-        console.log(this.BRAND_NAME,this.name);
+        console.log(this.BRAND_NAME, this.name);
 
     }
 }
@@ -157,6 +157,110 @@ let newLaptop = new LaptopMaker("HP")
 
 // protected access modifier is similar to private the basic difference is that in protected access modifier we can access it in own class as well as if any class is extended from it
 
-class HumanMaker{
-    
+
+//  Abstract classes and methods
+// never use new keyword while using the abstract classes because basically the abstract classes is 
+class Payment {
+    constructor(protected amount: number, protected account: number) { }
+    isPaymentValid(amount: number) {
+        return this.amount > 0
+    }
 }
+class Paytm extends Payment {
+
+}
+
+// Functions and callback in ts
+
+function sayName(name: string, callback: (value: string) => void) {
+    // callback("Hey")
+}
+sayName("Shivam", (value: string) => {
+    // console.log(value);
+
+})
+
+// rest operator
+
+function restParam(...args: number[]): void {
+
+}
+restParam(1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+// function overloading is typescript is simply that it allows us to create different signature for different use case which can accept different set of arguments
+
+function double(value: number): number
+function double(value: string): string
+
+function double(value: number | string): number | string {
+    if (typeof value === "number") {
+        return value * 2
+    }
+    else {
+        return value + value
+    }
+
+}
+
+const doubleNumber = double(2)
+const doubleString = double("Two")
+// console.log(doubleNumber);
+// console.log(doubleString);
+
+// Generics functions interfaces and classes
+
+// for example hume ek function banana hia jo koi bhi value ya type ko accept kar sakta hai toh ab hume pta hai hum isey any se achieve toh kar sakte hain but this will remove all the intellisense when we use value. So in order to solve this problem we use generic function that is when we give the param rather than declaring the type there we can use it in the argument. The industry standard is that it is denoted by <T> 
+
+function acceptValue<T>(value: T) {
+}
+
+acceptValue<string>("Shivam")
+acceptValue<number>(69)
+
+// generic interface
+
+interface Inter<T> {
+    name: string
+    age: number
+    key: T
+}
+
+function asdf(obj: Inter<string>) {
+
+}
+asdf({ name: "Shivam", age: 22, key: "afnjkakf" })
+
+// generic classes
+
+class LunchMaker<T> {
+    constructor(public value: T) {
+
+    }
+}
+let lunchOne = new LunchMaker("Cello")
+let lunchTwo = new LunchMaker(12)
+
+// type assertion and type casting
+
+// type assertion is simply to tell the typescript the type of particular thing for example
+
+let anyy: any = 12
+anyy as number // type casting and assertion
+
+// type guards  and typescript utility types
+// So type guards are special functions or expressions that allow you to narrow down the type of a variable at runtime for example in the below function the type can be anything so when we use a. we will only be able to access the methods that are common in both string an number but in order to properly use it we need to narrow it down
+// the basic use of type guard is when we are not sure about the type
+
+function narrowDown(a: string | number) {
+    if (typeof a === "string") {
+        console.log(a.length);
+
+    }
+    else {
+        console.log(a.toFixed);
+
+    }
+}
+
+narrowDown("Shivam")
+narrowDown(12)
