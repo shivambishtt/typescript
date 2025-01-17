@@ -85,6 +85,23 @@ function getLaptopDetails(system: Laptop | Keyboard): void {
 // type sankhya =number;
 // let num: sankhya
 
+type ID = number | string;
+
+const userId: ID = 123;   // Valid
+const productId: ID = "ABC123"; // Valid
+
+type Username = {
+    id: number;
+    name: string;
+    isActive: boolean;
+  };
+  
+  const user: Username = {
+    id: 1,
+    name: "Shivam",
+    isActive: true,
+  };
+
 type value = number | string | boolean
 function abcd(obj: value) {
 
@@ -171,7 +188,14 @@ class Paytm extends Payment {
 }
 
 // Functions and callback in ts
+// if the function is not either returning something or even doing console.log() we annotate it as never
 
+
+function notDoingSomething(err: string): never {
+    throw new Error(err)
+}
+notDoingSomething("Oops Error occured")
+ 
 function sayName(name: string, callback: (value: string) => void) {
     // callback("Hey")
 }
@@ -188,6 +212,7 @@ function restParam(...args: number[]): void {
 restParam(1, 2, 3, 4, 5, 6, 7, 8, 9)
 
 // function overloading is typescript is simply that it allows us to create different signature for different use case which can accept different set of arguments
+// to be more precised function overloading means that for a single function we can create two different types
 
 function double(value: number): number
 function double(value: string): string
@@ -264,3 +289,5 @@ function narrowDown(a: string | number) {
 
 narrowDown("Shivam")
 narrowDown(12)
+
+

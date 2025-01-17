@@ -38,6 +38,13 @@ function getData(obj) {
 getData({ name: "Shivam", email: "shivam123@gmail.com", password: "1234", salary: 1000000 });
 function getLaptopDetails(system) {
 }
+const userId = 123; // Valid
+const productId = "ABC123"; // Valid
+const user = {
+    id: 1,
+    name: "Shivam",
+    isActive: true,
+};
 function abcd(obj) {
 }
 abcd(true);
@@ -100,6 +107,11 @@ class Payment {
 class Paytm extends Payment {
 }
 // Functions and callback in ts
+// if the function is not either returning something or even doing console.log() we annotate it as never
+function notDoingSomething(err) {
+    throw new Error(err);
+}
+notDoingSomething("Oops Error occured");
 function sayName(name, callback) {
     // callback("Hey")
 }
