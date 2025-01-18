@@ -3,6 +3,7 @@
 // tuples, enums, any, unknown, void, never
 // 1 Tuples are basically elements for example we have created an array and in that we can like put string number anything etc. But if you use tuple we can simply specify that this will only contain a single data type like number or string etc.And we can tell the particular fixed type 
 // So the basic usae of tuples is that we need to get the things in ordered way like if it is written string in [0] index it should always return the string otherwise it will throw the error
+console.log("Typescript running");
 let arr3;
 arr3 = ["Hell", 69];
 let array = ["Shivam", true];
@@ -113,7 +114,7 @@ class Paytm extends Payment {
 // Functions and callback in ts
 // if the function is not either returning something or even doing console.log() we annotate it as never
 function notDoingSomething(err) {
-    // throw new Error(err);
+    throw new Error(err);
 }
 notDoingSomething("Oops Error occured");
 function sayName(name, callback) {
@@ -164,10 +165,10 @@ anyy; // type casting and assertion
 // the basic use of type guard is when we are not sure about the type
 function narrowDown(a) {
     if (typeof a === "string") {
-        // console.log(a.length);
+        console.log(a.length);
     }
     else {
-        // console.log(a.toFixed);
+        console.log(a.toFixed);
     }
 }
 narrowDown("Shivam");

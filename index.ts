@@ -2,8 +2,17 @@
 // tuples, enums, any, unknown, void, never
 
 // 1 Tuples are basically elements for example we have created an array and in that we can like put string number anything etc. But if you use tuple we can simply specify that this will only contain a single data type like number or string etc.And we can tell the particular fixed type 
+// So the basic usae of tuples is that we need to get the things in ordered way like if it is written string in [0] index it should always return the string otherwise it will throw the error
+
+console.log("Typescript running");
+
+let arr3: [string, number]
+arr3 = ["Hell", 69]
 
 let array: [string, boolean] = ["Shivam", true]
+
+// If we create an array this way we will only be able to use only single data type either string or number but if we want that in our array both data type shuld work then we should wrap our number | string with the parnthesis ()
+const arr1: (number | string)[] = [1, 2, "3"]
 
 // 2 Enums are basically we can say it is like the blueprint real life use case error code
 enum UserRoles {
@@ -94,19 +103,19 @@ type Username = {
     id: number;
     name: string;
     isActive: boolean;
-  };
-  
-  const user: Username = {
+};
+
+const user: Username = {
     id: 1,
     name: "Shivam",
     isActive: true,
-  };
+};
 
 type value = number | string | boolean
 function abcd(obj: value) {
 
 }
-abcd(true)
+// abcd(true)
 
 //                               4 Union and intersection types
 // Union is simply a single | when we specify multiple types of variable
@@ -144,6 +153,7 @@ class Abcd {
         this.name
     }
 }
+
 
 //  Public private and protected access modifier
 
@@ -195,7 +205,7 @@ function notDoingSomething(err: string): never {
     throw new Error(err)
 }
 notDoingSomething("Oops Error occured")
- 
+
 function sayName(name: string, callback: (value: string) => void) {
     // callback("Hey")
 }
